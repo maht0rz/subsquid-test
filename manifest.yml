@@ -26,8 +26,8 @@ mappings:
     - generated/server/config # configure the processor environment (for now this is required)
   eventHandlers:
     # Comment out the balances.Transfer handler and it stops working
-    # - event: balances.Transfer
-    #   handler: balancesTransfer
+    - event: balances.Transfer
+      handler: balancesTransfer
     - event: crowdloan.Contributed
       handler: crowdloanContributed
   extrinsicHandlers:
