@@ -15,6 +15,7 @@ typegen:
     source: wss://kusama-rpc.polkadot.io/
   events:
     - balances.Transfer
+    - crowdloan.Contributed
   calls:
     - timestamp.set
   outDir: types
@@ -24,8 +25,11 @@ mappings:
   imports:
     - generated/server/config # configure the processor environment (for now this is required)
   eventHandlers:
-    - event: balances.Transfer
-      handler: balancesTransfer
+    # Comment out the balances.Transfer handler and it stops working
+    # - event: balances.Transfer
+    #   handler: balancesTransfer
+    - event: crowdloan.Contributed
+      handler: crowdloanContributed
   extrinsicHandlers:
   preBlockHooks:
   postBlockHooks:

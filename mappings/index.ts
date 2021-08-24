@@ -3,6 +3,13 @@ import { DatabaseManager, EventContext, StoreContext } from '@subsquid/hydra-com
 import { Account, HistoricalBalance } from '../generated/model'
 import { Balances } from '../types'
 
+export async function crowdloanContributed({
+  store,
+  event,
+  block
+}: EventContext & StoreContext): Promise<void> {
+  console.log('crowdloanContributed');
+}
 
 export async function balancesTransfer({
   store,

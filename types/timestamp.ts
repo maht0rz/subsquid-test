@@ -19,12 +19,9 @@ export namespace Timestamp {
    *  The dispatch origin for this call must be `Inherent`.
    *
    *  # <weight>
-   *  - `O(T)` where `T` complexity of `on_timestamp_set`
+   *  - `O(1)` (Note that implementations of `OnTimestampSet` must also be `O(1)`)
    *  - 1 storage read and 1 storage mutation (codec `O(1)`). (because of `DidUpdate::take` in `on_finalize`)
-   *  - 1 event handler `on_timestamp_set` `O(T)`.
-   *  - Benchmark: 7.678 (min squares analysis)
-   *    - NOTE: This benchmark was done for a runtime with insignificant `on_timestamp_set` handlers.
-   *      New benchmarking is needed when adding new handlers.
+   *  - 1 event handler `on_timestamp_set`. Must be `O(1)`.
    *  # </weight>
    */
   export class SetCall {
